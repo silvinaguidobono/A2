@@ -4,7 +4,7 @@
 
 session_start();
 ini_set('display_errors',1);
-include_once 'lib/helper.php';
+include 'lib/helper.php';
 
 $usuario="";
 // Rescato el nombre del usuario de la sesión para mostrar en la página
