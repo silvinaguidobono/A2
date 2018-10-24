@@ -27,9 +27,6 @@ if ($_POST){
     }else{
         $errores[]="Debe ingresar una página a visualizar";
     }
-    if (count($errores)>0){
-        imprime_errores($errores);
-    }
 }else{
     $url="";
 }
@@ -52,6 +49,10 @@ if ($_POST){
                     <br>
                     <input type="text" placeholder="Ingrese una url" name="url"
                            value=""/>
+                    <?php 
+                    if (!empty($errores)){
+                        echo $errores[0];
+                    } ?>
                 </p>
                 <input type="submit" name="abrir" value="Abrir página"/>
             </form>

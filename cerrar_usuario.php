@@ -3,29 +3,14 @@
 // para permitir el acceso con otro usuario
 
     session_start();
-    /*
-    // elimino las variables de sesión
-    if (isset($_SESSION['usuario'])){
-        unset($_SESSION['usuario']);
-    }
-    if (isset($_SESSION['clave'])){
-        unset($_SESSION['clave']);
-    }
-    */
+    ini_set('display_errors',1);
+    include_once 'lib/helper.php';
+
     // Destruyo la sesión del usuario
     session_destroy();
     
     // elimino las cookies
-    if (isset($_COOKIE['usuario'])){
-        setcookie('usuario',"", time()-1800);
-    }
-    if (isset($_COOKIE['clave'])){
-        setcookie('clave',"", time()-1800);
-    }
-    if (isset($_COOKIE['fecha'])){
-        setcookie('fecha',"", time()-1800);
-    }
-    if (isset($_COOKIE['hora'])){
-        setcookie('hora',"", time()-1800);
-    }
-    header("Location: http://localhost:8080/index.php");
+    eliminar_cookies();
+        
+    // voy a la página principal de la aplicación
+    header("Location: index.php");
